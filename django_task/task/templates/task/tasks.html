@@ -1,0 +1,9 @@
+{% if latest_task_list %}
+    <ul>
+    {% for tarea in latest_task_list %}
+    <li><a href="{% url 'prueba:tareaDetail' tarea.id %}">{{ tarea.nombre }}</a></li>
+    {% endfor %}
+    </ul>
+{% else %}
+    <p>No polls are available.</p>
+{% endif %}
