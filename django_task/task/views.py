@@ -16,19 +16,7 @@ def tareaJson(request):
 # tareas_data = list(Task.objects.values())
 # return JsonResponse(tareas_data, safe=False)
 
-def tareaDetailJson(request, tarea_id):
-    try:
-        task = Task.objects.get(pk=tarea_id)
-        task_data = {
-            "id": task.id,
-            "nombre": task.nombre,
-            "descripcion": task.descripcion,
-        }
-        return JsonResponse(task_data)
-    except Task.DoesNotExist:
-        return JsonResponse({"error": "La tarea no existe"}, status=404)
 
-'''
 def tareaDetailJson(request, tarea_id):
     task = get_object_or_404(Task, pk=tarea_id)
     task_data = [
@@ -39,7 +27,7 @@ def tareaDetailJson(request, tarea_id):
         }
     ]
     return JsonResponse(task_data, safe=False)
-'''
+
 def usersJson(request):
     user_data = list(User.objects.values())
     return JsonResponse(user_data, safe=False)
