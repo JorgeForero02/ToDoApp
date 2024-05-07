@@ -7,9 +7,9 @@ from django.utils import timezone
 class Task(models.Model):
     nombre = models.CharField(max_length=200)
     descripcion = models.CharField(max_length=1000)
-    prioridad = models.IntegerField
     fecha_realizar = models.DateTimeField("fecha a realizar")
     estado = models.CharField(max_length=200)
+    priority = models.IntegerField(1)
 
     def __str__(self):
         return self.nombre

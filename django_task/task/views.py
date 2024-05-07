@@ -9,7 +9,7 @@ def index(request):
 
 
 def tareaJson(request):
-    latest_task_list = list(Task.objects.order_by("-id").values())
+    latest_task_list = list(Task.objects.order_by("-priority").values())
     return JsonResponse({"latest_task_list": latest_task_list})
 
 
@@ -47,7 +47,7 @@ def userDetailJson(request, user_id):
 
 
 def tarea(request):
-    latest_task_list = Task.objects.order_by("-fecha_realizar")[:5]
+    latest_task_list = Task.objects.order_by("-priority")
     context = {"latest_task_list": latest_task_list}
     return render(request, "task/tasks.html", context)
 
